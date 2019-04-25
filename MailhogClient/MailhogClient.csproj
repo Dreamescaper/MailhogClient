@@ -6,6 +6,8 @@
     <Authors>Dreamescaper</Authors>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/Dreamescaper/MailhogClient/</PackageProjectUrl>
+    <Description>.NET client for MailHog</Description>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>

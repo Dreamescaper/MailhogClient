@@ -57,7 +57,9 @@ namespace Mailhog
             if (query == null)
                 throw new ArgumentNullException(nameof(query));
 
-            return GetAsync<Messages>($"/api/v2/search?kind={kind}&query={WebUtility.UrlEncode(query)}&start={start}&limit={limit}");
+            var kindQuery = kind.ToString().ToLower();
+
+            return GetAsync<Messages>($"/api/v2/search?kind={kindQuery}&query={WebUtility.UrlEncode(query)}&start={start}&limit={limit}");
         }
 
         public Task DeleteAsync(string id)
@@ -75,7 +77,11 @@ namespace Mailhog
 
             if (!response.IsSuccessStatusCode)
             {
-                throw new HttpRequestException(content ?? response.ReasonPhrase);
+                var message = content
+                    ?? response.ReasonPhrase
+                    ?? ($"{(int)response.StatusCode} {response.StatusCode.ToString()}");
+
+                throw new HttpRequestException(message);
             }
 
             return JsonConvert.DeserializeObject<T>(content);
