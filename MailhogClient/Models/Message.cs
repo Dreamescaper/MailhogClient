@@ -11,7 +11,7 @@ namespace Mailhog.Models
         public Path[] To { get; set; }
         public Content Content { get; set; }
         public DateTime Created { get; set; }
-        public string Mime { get; set; }
+        public Mime Mime { get; set; }
         public Raw Raw { get; set; }
 
         [JsonIgnore]
