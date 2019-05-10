@@ -1,6 +1,4 @@
-﻿using MailhogClient.Models;
-
-namespace Mailhog.Models
+﻿namespace Mailhog.Models
 {
     public class Content
     {

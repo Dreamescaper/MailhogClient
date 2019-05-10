@@ -1,6 +1,4 @@
-﻿using Mailhog.Models;
-
-namespace MailhogClient.Models
+﻿namespace Mailhog.Models
 {
     public class Mime
     {
