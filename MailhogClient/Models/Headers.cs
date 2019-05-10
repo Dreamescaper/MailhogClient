@@ -3,6 +3,8 @@
     public class Headers
     {
         public string[] ContentId { get; set; }
+        public string[] ContentDisposition { get; set; }
+        public string[] ContentTransferEncoding { get; set; }
         public string[] ContentType { get; set; }
         public string[] Date { get; set; }
         public string[] From { get; set; }
