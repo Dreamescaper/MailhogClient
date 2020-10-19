@@ -21,10 +21,7 @@ namespace Mailhog
 
         public MailhogClient(HttpClient httpClient)
         {
-            if (_httpClient == null)
-                throw new ArgumentNullException(nameof(httpClient));
-
-            _httpClient = httpClient;
+            _httpClient = httpClient ?? throw new ArgumentNullException(nameof(httpClient));
         }
 
         /// <summary>
@@ -79,7 +76,7 @@ namespace Mailhog
             {
                 var message = content
                     ?? response.ReasonPhrase
-                    ?? ($"{(int)response.StatusCode} {response.StatusCode.ToString()}");
+                    ?? ($"{(int)response.StatusCode} {response.StatusCode}");
 
                 throw new HttpRequestException(message);
             }
